@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 17:37:54 by ahkecha           #+#    #+#             */
-/*   Updated: 2021/12/26 18:00:15 by ahkecha          ###   ########.fr       */
+/*   Updated: 2021/12/26 18:21:47 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,17 @@
 #include "minilibx/mlx.h"
 #include <fcntl.h>
 #include <unistd.h>
+#include "libft/libft.h"
 
 # define W_KEY 13
 # define S_KEY 1
 # define A_KEY 0
 # define D_KEY 2;
 # define ESCAPE_KEY 53;
+# define FILE_ERR "Error:\n Map not found"
+# define EXT_ERR "Error:\n Map must be .ber"
+# define FAIL_ERR "Error:\n Failed to read map"
+
 
 
 typedef struct s_img
@@ -44,7 +49,7 @@ typedef struct s_map
 	int		x;
 	int		y;
 	int		collectible;
-	char	**map
+	char	**map;
 }	t_map;
 
 typedef struct t_mlx
@@ -59,5 +64,9 @@ typedef struct t_mlx
 	t_img	*img;
 }	t_mlx;
 
+//erros functions
+void	f_map_error(void);
+void	ext_error(void);
+void	fail_err(void);
 
 #endif
