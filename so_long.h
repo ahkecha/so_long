@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 17:37:54 by ahkecha           #+#    #+#             */
-/*   Updated: 2021/12/26 18:35:40 by ahkecha          ###   ########.fr       */
+/*   Updated: 2021/12/26 18:39:05 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,12 @@ typedef struct t_mlx
 void	f_map_error(void);
 void	ext_error(void);
 void	fail_err(void);
+
+//map functions
 void	count_chars(t_map *map, char c);
+
+
+// miscellaneous
 void	ft_free(char **str);
 
 #endif
