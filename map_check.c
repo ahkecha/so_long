@@ -26,6 +26,17 @@ void		count_chars(t_map *map, char c)
 		map->exit += 1;
 }
 
+// static int	count_elem(char *line, int c)
+// {
+// 	int	ret;
+
+// 	ret = 0;
+// 	while (*line)
+// 		if (*line++ == c)
+// 			++ret;
+// 	return (ret);
+// }
+
 int		check_extentions(char *file_path)
 {
 	size_t	lenght;
@@ -39,6 +50,63 @@ int		check_extentions(char *file_path)
 	else
 		ext_error();
 	return (0);
+}
+
+
+
+int		map_shape(char *map_file, t_map *map)
+{
+	int 	i;
+	char	*line;
+	int		fd;
+	int		j;
+
+	i = 1;
+	j = 0;
+	fd = open(map_file, O_RDONLY);
+	line = get_next_line(fd);
+	while(line && i++)
+	{
+		if(i == 1)
+			map->coll = ft_strlen(line);
+		else if ((int)ft_strlen(line) != map->walls)
+			map->dif = 1;
+		count_chars(map, 'W');
+		count_chars(map, 'C');
+		count_chars(map, 'P');
+		count_chars(map, 'E');
+		free(line);
+		line = get_next_line(fd);
+	}
+	map->rows = 1;
+	if (!map->collectible || !map->exit || map->player != 1 || map->dif)
+		return (0);
+	return (1);
+}
+
+int		check_map(char *map_file, t_map *map)
+{
+	int		i;
+	int		j;
+	char	*line;
+	int		fd;
+
+	i = 0;
+	j = 1;
+	fd = open(map_file, O_RDONLY);
+	if (!check_extentions(map_file) || !map_shape(map_file, map))
+		j = 0;
+	line = get_next_line(fd);
+	while (line && ++i)
+	{
+		if ((i == 1 || i - map->rows) && !check2(line, "1"))
+			j = 0;
+		else if (i != 1 && i != map->rows && (!check2(line, "01CEP") || line[0 != '1'] || line[map->coll - 1] != '1'))
+			j = 0;
+		free(line);
+		line = get_next_line(fd);
+	}
+	return (j);
 }
 
 
