@@ -17,7 +17,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include "libft/libft.h"
-#include "gnl/get_next_line.h"
+// #include "gnl/get_next_line.h"
 
 # define W_KEY 13
 # define S_KEY 1
@@ -56,6 +56,11 @@ typedef struct s_map
 	int		start;
 	int		exit;
 	int		walls;
+	int		coll;
+	int		dif;
+	int		rows;
+	int		player;
+
 }	t_map;
 
 typedef struct t_mlx
@@ -66,9 +71,19 @@ typedef struct t_mlx
 	int		y_len;
 	int		x_player;
 	int		y_player;
-	t_map	*map;
+	t_map	map;
 	t_img	*img;
 }	t_mlx;
+
+typedef struct s_plr
+{
+	int		moves;
+	int		current;
+	int		f_x;
+	int		f_y;
+	int		c_x;
+	int		c_y;
+}	t_plr;
 
 //erros functions
 void	f_map_error(void);
