@@ -52,7 +52,24 @@ int		check_extentions(char *file_path)
 	return (0);
 }
 
+static int	check2(char *line, char *set)
+{
+	int			i;
+	char		*tmp;
 
+	i = 0;
+	while (*line)
+	{
+		tmp = set;
+		while (*tmp)
+			if (*line == *tmp++)
+				++i;
+		++line;
+	}
+	if (i != ft_strlen(len))
+		return (0);
+	return (1);
+}
 
 int		map_shape(char *map_file, t_map *map)
 {
