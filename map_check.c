@@ -6,13 +6,13 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 17:48:56 by ahkecha           #+#    #+#             */
-/*   Updated: 2021/12/26 18:36:16 by ahkecha          ###   ########.fr       */
+/*   Updated: 2021/12/27 13:04:42 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void		count_chars(t_map *map, char c)
+static void		count_chars(t_map *map, char c)
 {
 	if (c == '0')
 		map->empty += 1;
@@ -37,7 +37,7 @@ void		count_chars(t_map *map, char c)
 // 	return (ret);
 // }
 
-int		check_extentions(char *file_path)
+static int		check_extentions(char *file_path)
 {
 	size_t	lenght;
 
@@ -66,12 +66,12 @@ static int	check2(char *line, char *set)
 				++i;
 		++line;
 	}
-	if (i != ft_strlen(len))
+	if (i != ft_strlen(line))
 		return (0);
 	return (1);
 }
 
-int		map_shape(char *map_file, t_map *map)
+static int		map_shape(char *map_file, t_map *map)
 {
 	int 	i;
 	char	*line;
@@ -124,7 +124,6 @@ int		check_map(char *map_file, t_map *map)
 		line = get_next_line(fd);
 	}
 	return (j);
-}
 
 
 
