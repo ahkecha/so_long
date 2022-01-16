@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 17:48:56 by ahkecha           #+#    #+#             */
-/*   Updated: 2021/12/27 13:04:42 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/01/16 13:53:20 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,6 @@ static void		count_chars(t_map *map, char c)
 		map->exit += 1;
 }
 
-// static int	count_elem(char *line, int c)
-// {
-// 	int	ret;
-
-// 	ret = 0;
-// 	while (*line)
-// 		if (*line++ == c)
-// 			++ret;
-// 	return (ret);
-// }
 
 static int		check_extentions(char *file_path)
 {
@@ -52,23 +42,24 @@ static int		check_extentions(char *file_path)
 	return (0);
 }
 
-static int	check2(char *line, char *set)
+static int	check2(char *map)
 {
-	int			i;
-	char		*tmp;
+	int		fd;
+	int		line;
+	char	*str;
 
-	i = 0;
-	while (*line)
+	fd = open(map, O_RDONLY);
+	line = 0;
+	while (1)
 	{
-		tmp = set;
-		while (*tmp)
-			if (*line == *tmp++)
-				++i;
-		++line;
+		str = get_next_line(fd);
+		if (str == NULL)
+			break ;
+		free(str);
+		line++;
 	}
-	if (i != ft_strlen(line))
-		return (0);
-	return (1);
+	close(fd);
+	return (line);
 }
 
 static int		map_shape(char *map_file, t_map *map)
@@ -96,43 +87,40 @@ static int		map_shape(char *map_file, t_map *map)
 		line = get_next_line(fd);
 	}
 	map->rows = 1;
-	if (!map->collectible || !map->exit || map->player != 1 || map->dif)
+	if (!map->emerald || !map->exit || map->player != 1 || map->dif)
 		return (0);
 	return (1);
 }
 
-int		check_map(char *map_file, t_map *map)
+int		readmap(t_map *map, char *map_file)
 {
-	int		i;
-	int		j;
-	char	*line;
 	int		fd;
+	int		line;
+	char	*ptr;
 
-	i = 0;
-	j = 1;
+	line = check2(map_file);
 	fd = open(map_file, O_RDONLY);
-	if (!check_extentions(map_file) || !map_shape(map_file, map))
-		j = 0;
-	line = get_next_line(fd);
-	while (line && ++i)
+	map->map = malloc(sizeof(char) * line);
+	line = 0;
+	while (1337)
 	{
-		if ((i == 1 || i - map->rows) && !check2(line, "1"))
-			j = 0;
-		else if (i != 1 && i != map->rows && (!check2(line, "01CEP") || line[0 != '1'] || line[map->coll - 1] != '1'))
-			j = 0;
-		free(line);
-		line = get_next_line(fd);
+		ptr = get_next_line(fd);
+		if (!ptr)
+			break ;
+		map->map[line] = ptr;
+		line++;
 	}
-	return (j);
+	map->img.height = line;
+	map->img.width = ft_strlen(map->map[0]);
+	close(fd);
+	return (line);
+}
 
-
-
-
-// int	main(int ac, char **av)
-// {
-// 	if (ac > 1)
-// 	{
-// 		check_extentions(av[1]);
-// 	}
-// 	write (1, "\n", 1);
-// }
+int	main(int ac, char **av)
+{
+	if (ac > 1)
+	{
+		check_extentions(av[1]);
+	}
+	write (1, "\n", 1);
+}

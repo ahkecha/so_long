@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 17:37:54 by ahkecha           #+#    #+#             */
-/*   Updated: 2021/12/26 18:39:05 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/01/16 14:12:36 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@
 # define EXT_ERR "Error:\n Map must be .ber"
 # define FAIL_ERR "Error:\n Failed to read map"
 
-
-
 typedef struct s_img
 {
 	void	*up;
@@ -49,17 +47,27 @@ typedef struct s_map
 {
 	int		x;
 	int		y;
-	int		collectible;
+	int		i;
+	int		j;
+	void	*map_path;
 	char	**map;
-	int		empty;
-	int		emerald;
+	int		empty;d
+	void	*emerald;
 	int		start;
-	int		exit;
-	int		walls;
+	void	*exit;
+	int		*exit2;
+	void	*walls;
 	int		coll;
 	int		dif;
 	int		rows;
-	int		player;
+	int		*player;
+	int		*bg;
+	char	*tex_bg;
+	char	*tex_wall;
+	char	*tex_emerald;
+	char	*tex_exit;
+	t_mlx	mlx;
+	t_img	img;
 
 }	t_map;
 
@@ -69,21 +77,9 @@ typedef struct t_mlx
 	void	*win;
 	int		x_len;
 	int		y_len;
-	int		x_player;
-	int		y_player;
-	t_map	map;
-	t_img	*img;
 }	t_mlx;
 
-typedef struct s_plr
-{
-	int		moves;
-	int		current;
-	int		f_x;
-	int		f_y;
-	int		c_x;
-	int		c_y;
-}	t_plr;
+
 
 //erros functions
 void	f_map_error(void);
@@ -91,10 +87,13 @@ void	ext_error(void);
 void	fail_err(void);
 
 //map functions
-void	count_chars(t_map *map, char c);
+// void	count_chars(t_map *map, char c);
+int		check_map(char *map_file, t_map *map);
+int		readmap(t_map *map, char *map_file);
 
 
 // miscellaneous
-void	ft_free(char **str);
+// void	ft_free(char **str);
+char	*get_next_line(int fd);
 
 #endif
