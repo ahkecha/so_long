@@ -6,40 +6,40 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 13:54:34 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/01/16 14:12:00 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/01/16 14:20:00 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	wall(int i, int j, t_map *map)
+void	wall(t_map *map)
 {
 	mlx_put_image_to_window(map->mlx.mlx, map->mlx.win, map->walls,
-		j * 100, i * 100);
+		map->j * 100, map->i * 100);
 }
 
-void	player(int i, int j, t_map *map)
+void	player(t_map *map)
 {
 	mlx_put_image_to_window(map->mlx.mlx, map->mlx.win, map->player,
-		j * 100, i * 100);
+		map->j * 100, map->i * 100);
 }
 
-void	coll(int i, int j, t_map *map)
+void	coll(t_map *map)
 {
 	mlx_put_image_to_window(map->mlx.mlx, map->mlx.win, map->emerald,
-		j * 100, i * 100);
+		map->j * 100, map->i * 100);
 }
 
-void	exit(int i, int j, t_map *map)
+void	exit(t_map *map)
 {
 	mlx_put_image_to_window(map->mlx.mlx, map->mlx.win, map->exit,
-		j * 100, i * 100);
+		map->j * 100, map->i * 100);
 }
 
-void	path(int i, int j, t_map *map)
+void	path(t_map *map)
 {
 	mlx_put_image_to_window(map->mlx.mlx, map->mlx.win,
-		map->map_path, j * 100, i * 100);
+		map->map_path, map->j * 100, map->i * 100);
 }
 
 void	parse_xpm(t_map *map)

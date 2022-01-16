@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 17:37:54 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/01/16 14:12:36 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/01/16 14:13:19 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ typedef struct s_map
 	int		j;
 	void	*map_path;
 	char	**map;
-	int		empty;d
+	int		empty;
 	void	*emerald;
 	int		start;
 	void	*exit;
