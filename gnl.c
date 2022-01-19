@@ -6,12 +6,12 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 12:59:57 by ahkecha           #+#    #+#             */
-/*   Updated: 2021/12/27 13:03:13 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/01/19 15:06:13 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-# define BUFFER_SIZE 60
+# define BUFFER_SIZE 100
 
 typedef struct dipo_dyal_variables
 {
