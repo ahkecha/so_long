@@ -6,12 +6,12 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 13:54:34 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/01/19 15:03:42 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/02 12:14:40 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
+#include <stdio.h>
 void	wall(t_map *map, int i, int j)
 {
 	mlx_put_image_to_window(map->mlx.mlx, map->mlx.win, map->walls,

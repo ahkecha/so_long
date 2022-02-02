@@ -6,13 +6,13 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 12:46:58 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/01/19 15:03:53 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/02 12:41:50 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int		key_press(int keycode, t_map *map)
+int		key_press(int keycode, t_map *map, int i, int j)
 {
 	if (keycode == ESCAPE_KEY)
 	{
@@ -26,6 +26,13 @@ int	main(int ac, char **av)
 {
 	t_map map;
 
+	is_exist(av[1]);
+	if (!(check_extentions(av[1])))
+	{
+		ft_putendl_fd(EXT_ERR, 2);
+		exit(EXIT_FAILURE);
+	}
+	check_content(av[1]);
 	readmap(&map, av[1]);
 	map.mlx.mlx = mlx_init();
 	map.mlx.win = mlx_new_window(map.mlx.mlx, map.img.width * 70, map.img.height * 70, "test");

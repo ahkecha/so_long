@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 17:37:54 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/01/19 15:04:10 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/02 12:41:28 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@
 # define W_KEY 13
 # define S_KEY 1
 # define A_KEY 0
-# define D_KEY 2;
+# define D_KEY 2
 # define ESCAPE_KEY 53
-# define FILE_ERR "Error:\n Map not found"
-# define EXT_ERR "Error:\n Map must be .ber"
-# define FAIL_ERR "Error:\n Failed to read map"
+# define FILE_ERR "Error:\nNo such file or directory"
+# define EXT_ERR "Error:\nMap must be .ber"
+# define FAIL_ERR "Error:\nMap file is empty"
 
 typedef struct s_img
 {
@@ -104,6 +104,9 @@ void	parse_xpm(t_map *map);
 void	render_player(t_map *map, int i, int j);
 void	render_bg(t_map *map);
 int		parse_map(t_map *map);
+int		check_extentions(char *file_path);
+void	check_content(char *file_path);
+void	is_exist(char *file_path);
 
 // miscellaneous
 // void	ft_free(char **str);
