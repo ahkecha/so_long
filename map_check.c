@@ -6,11 +6,12 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 17:48:56 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/01/19 15:04:30 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/02 12:40:53 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include <errno.h>
 
 static void		count_chars(t_map *map, char c)
 {
@@ -27,7 +28,7 @@ static void		count_chars(t_map *map, char c)
 }
 
 
-static int		check_extentions(char *file_path)
+int		check_extentions(char *file_path)
 {
 	size_t	lenght;
 
@@ -41,6 +42,8 @@ static int		check_extentions(char *file_path)
 		ext_error();
 	return (0);
 }
+
+
 
 static int	check2(char *map_file)
 {
@@ -111,13 +114,32 @@ int		readmap(t_map *map, char *map_file)
 			break ;
 		map->map[line] = str;
 		line++;
-		//// puts("loop");
 	}
 	map->img.height = line;
 	//// puts("p1");
 	map->img.width = ft_strlen(map->map[0]) - 1;
 	close(fd);
 	return (line);
+}
+
+void	is_exist(char *file_path)
+{
+	int fd;
+
+	fd = open(file_path, O_RDONLY);
+	if (fd == -1)
+		f_map_error();
+}
+
+void	check_content(char *file_path)
+{
+	int fd;
+	char *str;
+
+	fd = open(file_path, O_RDONLY);
+	str = get_next_line(fd);
+	if (!str)
+		fail_err();
 }
 
 
