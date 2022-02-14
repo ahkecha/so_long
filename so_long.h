@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 17:37:54 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/02 12:41:28 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/14 17:44:51 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,10 @@ typedef struct s_mlx
 
 typedef struct s_map
 {
-	int		x;
-	int		y;
-	int		z;
-	int		i;
-	int		j;
-	int		plr_x;
-	int		plr_y;
+
+	int		playerx;
+	int		playery;
+	int		exitis;
 	void	*map_path;
 	char	**map;
 	int		empty;
@@ -83,12 +80,11 @@ typedef struct s_map
 
 
 
-
-
 //erros functions
 void	f_map_error(void);
 void	ext_error(void);
 void	fail_err(void);
+int 	quit(int a);
 
 //map functions
 // void	count_chars(t_map *map, char c);
@@ -107,9 +103,12 @@ int		parse_map(t_map *map);
 int		check_extentions(char *file_path);
 void	check_content(char *file_path);
 void	is_exist(char *file_path);
-
-// miscellaneous
+void	go_up(t_map *map, int w);
 // void	ft_free(char **str);
 char	*get_next_line(int fd);
+void	ft_swap(char *a, char *b);
+void	ft_render_images(t_map *map);
+void	player_position(t_map *map);
+void	render_img(t_map *map, int i, int j, char *path);
 
 #endif
