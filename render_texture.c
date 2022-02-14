@@ -6,53 +6,12 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 13:54:34 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/14 17:51:18 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/14 18:58:01 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include <stdio.h>
-// void	wall(t_map *map, int i, int j)
-// {
-// 	mlx_put_image_to_window(map->mlx.mlx, map->mlx.win, map->walls,
-// 		j * 70, i * 70);
-// }
-
-// void	player(t_map *map, int i, int j)
-// {
-// 	mlx_put_image_to_window(map->mlx.mlx, map->mlx.win, map->player,
-// 		j * 70, i * 70);
-// }
-
-// void	coll(t_map *map, int i, int j)
-// {
-// 	mlx_put_image_to_window(map->mlx.mlx, map->mlx.win, map->emerald,
-// 		j * 70, i * 70);
-// }
-
-// void	exits(t_map *map, int i, int j)
-// {
-// 	mlx_put_image_to_window(map->mlx.mlx, map->mlx.win, map->exit,
-// 		j * 70, i * 70);
-// }
-
-// void	bg(t_map *map, int i, int j)
-// {
-// 	mlx_put_image_to_window(map->mlx.mlx, map->mlx.win,
-// 		map->bg, j * 70, i * 70);
-// }
-
-// void	parse_xpm(t_map *map)
-// {
-// 	map->tex_bg = "./textures/woodblock.xpm";
-// 	map->bg = mlx_xpm_file_to_image(map->mlx.mlx, map->tex_bg, &map->i, &map->j);
-// 	map->tex_emerald = "./textures/eyeofender.xpm";
-// 	map->emerald = mlx_xpm_file_to_image(map->mlx.mlx, map->tex_emerald, &map->i, &map->j);
-// 	map->tex_wall = "./textures/obsidian.xpm";
-// 	map->walls = mlx_xpm_file_to_image(map->mlx.mlx, map->tex_wall, &map->i, &map->j);
-// 	map->tex_exit = "./textures/portal.xpm";
-// 	map->exit = mlx_xpm_file_to_image(map->mlx.mlx, map->tex_exit, &map->i, &map->j);
-// }
 
 void	render_bg(t_map *map)
 {
@@ -119,16 +78,15 @@ void	player_position(t_map *map)
 	int j;
 
 	i = 0;
-	while(map->map[i] != NULL && i <= map->img.height)
+	while(map->map[i] != NULL && i <= map->img.height - 1)
 	{
 		j = 0;
-		while(map->map[i][j] != '\0' && j <= map->img.width )
+		while(map->map[i][j] != '\0' && j <= map->img.width - 1)
 		{
 			if (map->map[i][j] == 'P')
 			{
-				// map->playerx = j;
-				// map->playery = i;
-				printf("%c", map->map[i][j]);
+				map->playerx = j;
+				map->playery = i;
 			}
 			j++;
 		}

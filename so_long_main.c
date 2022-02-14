@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 12:46:58 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/14 18:08:09 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/14 18:57:17 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,14 @@ int		key_press(int keycode, t_map *map)
 		mlx_destroy_window(map->mlx.mlx, map->mlx.win);
 		exit(EXIT_SUCCESS);
 	}
-	else if (keycode == W_KEY)
-		go_up(map, 1);
+	else if (keycode == D_KEY)
+		go_right(map, 1);
+	else if(keycode == A_KEY)
+		go_left(map, -1);
+	else if(keycode == W_KEY)
+		go_up(map, -1);
+	else if(keycode == S_KEY)
+		go_down(map, 1);
 }
 
 int	main(int ac, char **av)
@@ -44,11 +50,12 @@ int	main(int ac, char **av)
 	map.mlx.mlx = mlx_init();
 	map.mlx.win = mlx_new_window(map.mlx.mlx, map.img.width * 70, map.img.height * 70, "test");
 	// parse_xpm(&map);
+	// player_position(&map);
+	// printf("%d %d\n", map.img.width, map.img.height);
 	render_bg(&map);
 	parse_map(&map);
-	// player_position(&map);
 	// render_player(&map, 100, 100);
-	// player_position(&map);
+	player_position(&map);
 
 	mlx_hook(map.mlx.win, 2, 1L<<0, key_press, &map);
 	mlx_hook(map.mlx.win, 17, 1L<<17, quit, &map);

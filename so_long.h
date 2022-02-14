@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 17:37:54 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/14 17:44:51 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/14 18:56:55 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,10 @@ int		parse_map(t_map *map);
 int		check_extentions(char *file_path);
 void	check_content(char *file_path);
 void	is_exist(char *file_path);
+void	go_right(t_map *map, int w);
+void	go_left(t_map *map, int w);
 void	go_up(t_map *map, int w);
+void	go_down(t_map *map, int w);
 // void	ft_free(char **str);
 char	*get_next_line(int fd);
 void	ft_swap(char *a, char *b);
