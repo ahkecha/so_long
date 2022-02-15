@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 12:45:56 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/12 12:45:57 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/15 15:57:23 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,11 @@ void	ext_error(void)
 void	fail_err(void)
 {
 	ft_putendl_fd(FAIL_ERR, 2);
+	exit(EXIT_FAILURE);
+}
+
+void	arerr(void)
+{
+	ft_putendl_fd("Error\nNot enough arguments", 2);
 	exit(EXIT_FAILURE);
 }

@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 12:46:58 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/15 13:46:47 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/15 15:58:41 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ int		key_press(int keycode, t_map *map)
 		mlx_destroy_window(map->mlx.mlx, map->mlx.win);
 		exit(EXIT_SUCCESS);
 	}
-	else if (keycode == D_KEY)
+	else if (keycode == D_KEY || keycode == RIGHT_KEY)
 		go_right(map, 1);
-	else if(keycode == A_KEY)
+	else if(keycode == A_KEY || keycode == LEFT_KEY)
 		go_left(map, -1);
-	else if(keycode == W_KEY)
+	else if(keycode == W_KEY || keycode == UP_KEY)
 		go_up(map, -1);
-	else if(keycode == S_KEY)
+	else if(keycode == S_KEY || keycode == DOWN_KEY)
 		go_down(map, 1);
 	return (0);
 }
@@ -35,32 +35,21 @@ int	main(int ac, char **av)
 {
 	t_map map;
 	if (ac < 2)
-	{
-		ft_putendl_fd("Error\nNot enough arguments", 2);
-		exit(EXIT_FAILURE);
-	}
+		arerr();
 	is_exist(av[1]);
 	if (!(check_extentions(av[1])))
-	{
-		ft_putendl_fd(EXT_ERR, 2);
-		exit(EXIT_FAILURE);
-	}
-
+		ext_error();
 	check_content(av[1]);
 	readmap(&map, av[1]);
 	// int res = ft_charcount(map.map, 'C');
 	// printf("%d", res);
 	map.mlx.mlx = mlx_init();
 	map.mlx.win = mlx_new_window(map.mlx.mlx, map.img.width * 70, map.img.height * 70, "test");
-	// parse_xpm(&map);
-	// player_position(&map);
-	// printf("%d %d\n", map.img.width, map.img.height);
 	render_bg(&map);
-	parse_map(&map);
-	// render_player(&map, 100, 100);
+	parse_map(&map, "./textures/portal.xpm");
+
 	player_position(&map);
 	mlx_hook(map.mlx.win, 2, 1L<<0, key_press, &map);
 	mlx_hook(map.mlx.win, 17, 1L<<17, quit, &map);
 	mlx_loop(map.mlx.mlx);
-
 }

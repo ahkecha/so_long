@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 13:54:34 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/15 13:33:04 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/15 15:44:48 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	render_img(t_map *map, int i, int j, char *path)
 	mlx_destroy_image(map->mlx.mlx, map->img.ptr);
 }
 
-int		parse_map(t_map *map)
+int		parse_map(t_map *map, char	*exit)
 {
 	int	i;
 	int	j;
@@ -63,7 +63,7 @@ int		parse_map(t_map *map)
 			else if (map->map[i][j] == 'C')
 				render_img(map, i, j, "./textures/eyeofender.xpm");
 			else if (map->map[i][j] == 'E')
-				render_img(map, i, j, "./textures/portal.xpm");
+				render_img(map, i, j, exit);
 			j++;
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 17:37:54 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/15 14:01:52 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/15 15:57:32 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@
 # define A_KEY 0
 # define D_KEY 2
 # define ESCAPE_KEY 53
+# define LEFT_KEY 123
+# define RIGHT_KEY 124
+# define DOWN_KEY 125
+# define UP_KEY 126
 # define FILE_ERR "Error:\nNo such file or directory"
 # define EXT_ERR "Error:\nMap must be .ber"
 # define FAIL_ERR "Error:\nMap file is empty"
@@ -90,6 +94,7 @@ typedef struct gnl
 void	f_map_error(void);
 void	ext_error(void);
 void	fail_err(void);
+void	arerr(void);
 int		quit(int a);
 int		check_map(char *map_file, t_map *map);
 int		readmap(t_map *map, char *map_file);
@@ -97,7 +102,7 @@ void	bg(t_map *map, int i, int j);
 void	parse_xpm(t_map *map);
 void	render_player(t_map *map, int i, int j);
 void	render_bg(t_map *map);
-int		parse_map(t_map *map);
+int		parse_map(t_map *map, char	*exit);
 int		check_extentions(char *file_path);
 void	check_content(char *file_path);
 void	is_exist(char *file_path);
@@ -115,6 +120,7 @@ void	ft_render_images(t_map *map);
 void	player_position(t_map *map);
 void	render_img(t_map *map, int i, int j, char *path);
 void	vsync(t_map *map);
+void	vsync_with_exit(t_map *map);
 void	winexit(void);
 
 #endif
