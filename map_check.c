@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 17:48:56 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/15 13:28:01 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/15 14:14:09 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ static int	check2(char *map_file)
 			break ;
 		free(str);
 		line++;
+	}
+	if (line == 1)
+	{
+		ft_putendl_fd("Error\nInvalid Map" ,2);
+		exit(EXIT_FAILURE);
 	}
 	close(fd);
 	return (line);
