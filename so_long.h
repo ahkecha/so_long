@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 17:37:54 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/15 13:44:35 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/15 14:01:52 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,6 @@ void	ft_render_images(t_map *map);
 void	player_position(t_map *map);
 void	render_img(t_map *map, int i, int j, char *path);
 void	vsync(t_map *map);
+void	winexit(void);
 
 #endif

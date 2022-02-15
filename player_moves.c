@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 12:00:39 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/15 13:40:01 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/15 14:02:35 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,10 @@ void	go_right(t_map *map, int w)
 	j = map->playery;
 	if (map->map[j][i + w] == 'E' && ft_charcount(map) == 0)
 	{
-		map->map[i][i + w] = 'E';
-		map->map[i][w] = '0';
-		mlx_clear_window(map->mlx.mlx, map->mlx.win);
-		render_bg(map);
-		parse_map(map);
-		player_position(map);
-		exit(0);
+		map->map[j][i + w] = 'E';
+		map->map[j][i] = '0';
+		vsync(map);
+		winexit();
 
 	}
 	if (map->map[j][i + w] == '0' || map->map[j][i + w] == 'C')
@@ -49,12 +46,9 @@ void	go_left(t_map *map, int w)
 	if (map->map[j][i + w] == 'E' && ft_charcount(map) == 0)
 	{
 		map->map[i][i + w] = 'E';
-		map->map[i][w] = '0';
-		mlx_clear_window(map->mlx.mlx, map->mlx.win);
-		render_bg(map);
-		parse_map(map);
-		player_position(map);
-		exit(0);
+		map->map[j][i] = '0';
+		vsync(map);
+		winexit();
 	}
 	if (map->map[j][i + w] == '0' || map->map[j][i + w] == 'C')
 	{
@@ -74,12 +68,9 @@ void	go_up(t_map *map, int w)
 	if (map->map[j + w][i] == 'E' && ft_charcount(map) == 0)
 	{
 		map->map[j + w][i] = 'E';
-		map->map[i][w] = '0';
-		mlx_clear_window(map->mlx.mlx, map->mlx.win);
-		render_bg(map);
-		parse_map(map);
-		player_position(map);
-		exit(0);
+		map->map[j][i] = '0';
+		vsync(map);
+		winexit();
 
 	}
 	if (map->map[j + w][i] == '0' || map->map[j + w][i] == 'C')
@@ -100,11 +91,9 @@ void	go_down(t_map *map, int w)
 	if (map->map[j + w][i] == 'E' && ft_charcount(map) == 0)
 	{
 		map->map[j + w][i] = 'E';
-		map->map[i][w] = '0';
-		mlx_clear_window(map->mlx.mlx, map->mlx.win);
-		render_bg(map);
-		parse_map(map);
-		player_position(map);
+		map->map[j][i] = '0';
+		vsync(map);
+		winexit();
 
 	}
 	if (map->map[j + w][i] == '0' || map->map[j + w][i] == 'C')
