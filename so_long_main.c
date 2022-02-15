@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 12:46:58 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/14 18:57:17 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/15 13:46:47 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		key_press(int keycode, t_map *map)
 		go_up(map, -1);
 	else if(keycode == S_KEY)
 		go_down(map, 1);
+	return (0);
 }
 
 int	main(int ac, char **av)
@@ -47,6 +48,8 @@ int	main(int ac, char **av)
 
 	check_content(av[1]);
 	readmap(&map, av[1]);
+	// int res = ft_charcount(map.map, 'C');
+	// printf("%d", res);
 	map.mlx.mlx = mlx_init();
 	map.mlx.win = mlx_new_window(map.mlx.mlx, map.img.width * 70, map.img.height * 70, "test");
 	// parse_xpm(&map);
@@ -56,7 +59,6 @@ int	main(int ac, char **av)
 	parse_map(&map);
 	// render_player(&map, 100, 100);
 	player_position(&map);
-
 	mlx_hook(map.mlx.win, 2, 1L<<0, key_press, &map);
 	mlx_hook(map.mlx.win, 17, 1L<<17, quit, &map);
 	mlx_loop(map.mlx.mlx);

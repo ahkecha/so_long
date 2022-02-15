@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 13:54:34 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/14 18:58:01 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/15 13:33:04 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int		parse_map(t_map *map)
 			else if (map->map[i][j] == 'C')
 				render_img(map, i, j, "./textures/eyeofender.xpm");
 			else if (map->map[i][j] == 'E')
-				render_img(map, i, j, "./textures/obsidian.xpm");
+				render_img(map, i, j, "./textures/portal.xpm");
 			j++;
 		}
 		i++;

@@ -6,32 +6,11 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 12:59:57 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/01/19 15:06:13 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/15 13:42:40 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-# define BUFFER_SIZE 100
-
-typedef struct dipo_dyal_variables
-{
-	char		*line;
-	char		*ch;
-	int			tab[2];
-}			t_list;
-
-static void	ft_free(char **str)
-{
-	free(*str);
-	*str = NULL;
-}
-
-static char	*ft_freesec(char **str)
-{
-	free(*str);
-	*str = NULL;
-	return (NULL);
-}
 
 static int	get_line2(int fd, char **s, t_list *var)
 {
