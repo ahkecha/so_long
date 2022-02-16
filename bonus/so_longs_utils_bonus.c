@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 18:34:57 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/16 15:47:44 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/16 17:29:19 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	vsync(t_map *map)
 {
 	mlx_clear_window(map->mlx.mlx, map->mlx.win);
 	render_bg(map);
-	parse_map(map, "../textures/woodblock.xpm");
+	parse_map(map, "./textures/woodblock.xpm");
 	player_position(map);
 	count_steps(map);
 }
@@ -63,7 +63,7 @@ void	vsync_with_exit(t_map *map)
 {
 	mlx_clear_window(map->mlx.mlx, map->mlx.win);
 	render_bg(map);
-	parse_map(map, "../textures/portal.xpm");
+	parse_map(map, "./textures/portal.xpm");
 	player_position(map);
 	count_steps(map);
 }

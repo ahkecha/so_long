@@ -25,7 +25,6 @@ void	go_right(t_map *map, int w)
 		map->map[j][i] = '0';
 		vsync_with_exit(map);
 		winexit();
-
 	}
 	if (map->map[j][i + w] == '0' || map->map[j][i + w] == 'C')
 	{
@@ -70,7 +69,6 @@ void	go_up(t_map *map, int w)
 		map->map[j][i] = '0';
 		vsync_with_exit(map);
 		winexit();
-
 	}
 	if (map->map[j + w][i] == '0' || map->map[j + w][i] == 'C')
 	{
@@ -93,7 +91,6 @@ void	go_down(t_map *map, int w)
 		map->map[j][i] = '0';
 		vsync_with_exit(map);
 		winexit();
-
 	}
 	if (map->map[j + w][i] == '0' || map->map[j + w][i] == 'C')
 	{
@@ -102,6 +99,3 @@ void	go_down(t_map *map, int w)
 		vsync_with_exit(map);
 	}
 }
-
-
-

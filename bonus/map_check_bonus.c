@@ -12,21 +12,20 @@
 
 #include "so_long_bonus.h"
 
-int		check_extentions(char *file_path)
+int	check_extentions(char *file_path)
 {
 	size_t	lenght;
 
 	lenght = ft_strlen(file_path);
 	if (!lenght)
 		f_map_error();
-	if (file_path[lenght - 1] == 'r' && file_path[lenght - 2] == 'e' && \
+	if (file_path[lenght - 1] == 'r' && file_path[lenght - 2] == 'e' &&
 		file_path[lenght - 3] == 'b' && file_path[lenght - 4] == '.')
 		return (1);
 	else
 		ext_error();
 	return (0);
 }
-
 
 static int	check2(char *map_file)
 {
@@ -46,14 +45,14 @@ static int	check2(char *map_file)
 	}
 	if (line == 1)
 	{
-		ft_putendl_fd("Error\nInvalid Map" ,2);
+		ft_putendl_fd("Error\nInvalid Map", 2);
 		exit(EXIT_FAILURE);
 	}
 	close(fd);
 	return (line);
 }
 
-int		readmap(t_map *map, char *map_file)
+int	readmap(t_map *map, char *map_file)
 {
 	int		fd;
 	int		line;
@@ -81,7 +80,7 @@ int		readmap(t_map *map, char *map_file)
 }
 void	is_exist(char *file_path)
 {
-	int fd;
+	int	fd;
 
 	fd = open(file_path, O_RDONLY);
 	if (fd == -1)
@@ -90,15 +89,11 @@ void	is_exist(char *file_path)
 
 void	check_content(char *file_path)
 {
-	int fd;
-	char *str;
+	int		fd;
+	char	*str;
 
 	fd = open(file_path, O_RDONLY);
 	str = get_next_line(fd);
 	if (!str)
 		fail_err();
 }
-
-
-
-

@@ -12,10 +12,10 @@
 
 #include "so_long_bonus.h"
 
-int check_components(t_map *map)
+int	check_components(t_map *map)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -23,10 +23,8 @@ int check_components(t_map *map)
 	{
 		while (j < map->img.width)
 		{
-			if (map->map[i][j] != 'P' && map->map[i][j] != 'C' \
-			 && map->map[i][j] != 'E'&& map->map[i][j] != '1' \
-			 && map->map[i][j] != '0')
-			 	arerr();
+			if (map->map[i][j] != 'P' && map->map[i][j] != 'C' && map->map[i][j] != 'E' && map->map[i][j] != '1' && map->map[i][j] != '0')
+				arerr();
 			j++;
 		}
 		i++;
@@ -61,5 +59,3 @@ int check_components(t_map *map)
 // 		return (0);
 // 	return (1);
 // }
-
-

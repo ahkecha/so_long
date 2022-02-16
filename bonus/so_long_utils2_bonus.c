@@ -30,4 +30,3 @@ void	winexit(void)
 	ft_putendl_fd("👏👏👏Winner👏👏👏", 1);
 	exit(EXIT_SUCCESS);
 }
-

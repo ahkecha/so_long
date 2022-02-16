@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 13:54:34 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/16 15:47:31 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/16 17:29:32 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	render_bg(t_map *map)
 	{
 		while (j < map->img.width - 1)
 		{
-			render_img(map, i, j, "../textures/woodblock.xpm");
+			render_img(map, i, j, "./textures/woodblock.xpm");
 			j++;
 		}
 		i++;
@@ -33,20 +33,21 @@ void	render_bg(t_map *map)
 
 void	render_img(t_map *map, int i, int j, char *path)
 {
-	int height;
-	int width;
+	int	height;
+	int	width;
 
 	height = 70;
 	width = 70;
-
 	map->img.ptr = mlx_xpm_file_to_image(map->mlx.mlx, path, &width, &height);
-	mlx_put_image_to_window(map->mlx.mlx, map->mlx.win, map->img.ptr, j * 70, i * 70);
-	mlx_string_put(map->mlx.mlx, map->mlx.win, 30, 50, 0xFFFFFF, ft_itoa(map->steps));
+	mlx_put_image_to_window(map->mlx.mlx, map->mlx.win, map->img.ptr, j * 70, i
+			* 70);
+	mlx_string_put(map->mlx.mlx, map->mlx.win, 30, 50, 0xFFFFFF,
+			ft_itoa(map->steps));
 	mlx_string_put(map->mlx.mlx, map->mlx.win, 30, 30, 0xFFFFFF, "STEPS");
 	mlx_destroy_image(map->mlx.mlx, map->img.ptr);
 }
 
-int		parse_map(t_map *map, char	*exit)
+int	parse_map(t_map *map, char *exit)
 {
 	int	i;
 	int	j;
@@ -58,11 +59,11 @@ int		parse_map(t_map *map, char	*exit)
 		while (j < map->img.width)
 		{
 			if (map->map[i][j] == '1')
-				render_img(map, i, j, "../textures/obsidian.xpm");
+				render_img(map, i, j, "./textures/obsidian.xpm");
 			else if (map->map[i][j] == 'P')
-				render_img(map, i, j, "../textures/steve.xpm");
+				render_img(map, i, j, "./textures/steve.xpm");
 			else if (map->map[i][j] == 'C')
-				render_img(map, i, j, "../textures/eyeofender.xpm");
+				render_img(map, i, j, "./textures/eyeofender.xpm");
 			else if (map->map[i][j] == 'E')
 				render_img(map, i, j, exit);
 			j++;
@@ -75,14 +76,14 @@ int		parse_map(t_map *map, char	*exit)
 
 void	player_position(t_map *map)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
-	while(map->map[i] != NULL && i <= map->img.height - 1)
+	while (map->map[i] != NULL && i <= map->img.height - 1)
 	{
 		j = 0;
-		while(map->map[i][j] != '\0' && j <= map->img.width - 1)
+		while (map->map[i][j] != '\0' && j <= map->img.width - 1)
 		{
 			if (map->map[i][j] == 'P')
 			{
