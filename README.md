@@ -31,10 +31,6 @@ $> make
 ```bash
 $> Usage: ./so_long [map_file]
 ```
-* Step-by-step bullets
-```
-code blocks for commands
-```
 
 ## Resources
 
