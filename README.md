@@ -31,7 +31,8 @@ $> make
 ```bash
 $> Usage: ./so_long [map_file]
 ```
-
+### Screenshots
+![img](textures/s.png)
 ## Resources
 
 Inspiration, code snippets, etc.
