@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 17:48:56 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/15 14:14:09 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/16 15:35:02 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,10 @@ int		readmap(t_map *map, char *map_file)
 	}
 	map->img.height = line;
 	map->img.width = ft_strlen(map->map[0]) - 1;
+	map->steps = 0;
 	close(fd);
 	return (line);
 }
-
 void	is_exist(char *file_path)
 {
 	int fd;
@@ -100,6 +100,7 @@ void	check_content(char *file_path)
 	if (!str)
 		fail_err();
 }
+
 
 
 

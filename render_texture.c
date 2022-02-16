@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 13:54:34 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/15 15:44:48 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/16 15:35:18 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	render_img(t_map *map, int i, int j, char *path)
 
 	map->img.ptr = mlx_xpm_file_to_image(map->mlx.mlx, path, &width, &height);
 	mlx_put_image_to_window(map->mlx.mlx, map->mlx.win, map->img.ptr, j * 70, i * 70);
+	mlx_string_put(map->mlx.mlx, map->mlx.win, 30, 50, 0xFFFFFF, ft_itoa(map->steps));
+	mlx_string_put(map->mlx.mlx, map->mlx.win, 30, 30, 0xFFFFFF, "STEPS");
 	mlx_destroy_image(map->mlx.mlx, map->img.ptr);
 }
 

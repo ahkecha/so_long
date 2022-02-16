@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 12:46:58 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/16 15:22:43 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/16 15:51:39 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	main(int ac, char **av)
 	readmap(&map, av[1]);
 	check_components(&map);
 	map.mlx.mlx = mlx_init();
-	map.mlx.win = mlx_new_window(map.mlx.mlx, map.img.width * 70, map.img.height * 70, "test");
+	map.mlx.win = mlx_new_window(map.mlx.mlx, map.img.width * 70, map.img.height * 70, "so_long");
 	render_bg(&map);
 	parse_map(&map, "./textures/portal.xpm");
 	player_position(&map);
