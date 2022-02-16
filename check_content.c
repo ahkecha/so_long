@@ -6,16 +6,16 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 14:41:02 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/16 15:23:39 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/16 18:04:01 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int check_components(t_map *map)
+int	check_components(t_map *map)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -23,10 +23,10 @@ int check_components(t_map *map)
 	{
 		while (j < map->img.width)
 		{
-			if (map->map[i][j] != 'P' && map->map[i][j] != 'C' \
-			 && map->map[i][j] != 'E'&& map->map[i][j] != '1' \
-			 && map->map[i][j] != '0')
-			 	arerr();
+			if (map->map[i][j] != 'P' && map->map[i][j] != 'C' &&
+				map->map[i][j] != 'E' && map->map[i][j] != '1' &&
+				map->map[i][j] != '0')
+				arerr();
 			j++;
 		}
 		i++;
@@ -61,5 +61,3 @@ int check_components(t_map *map)
 // 		return (0);
 // 	return (1);
 // }
-
-

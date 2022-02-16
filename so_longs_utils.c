@@ -6,20 +6,11 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 18:34:57 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/15 15:46:12 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/16 18:08:23 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	ft_swap(char *a, char *b)
-{
-	char	tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
 
 int	ft_charcount(t_map *map)
 {

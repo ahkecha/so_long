@@ -6,15 +6,14 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 17:48:56 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/16 15:35:02 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/16 18:07:49 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include <errno.h>
 
-
-int		check_extentions(char *file_path)
+int	check_extentions(char *file_path)
 {
 	size_t	lenght;
 
@@ -28,7 +27,6 @@ int		check_extentions(char *file_path)
 		ext_error();
 	return (0);
 }
-
 
 static int	check2(char *map_file)
 {
@@ -48,14 +46,14 @@ static int	check2(char *map_file)
 	}
 	if (line == 1)
 	{
-		ft_putendl_fd("Error\nInvalid Map" ,2);
+		ft_putendl_fd("Error\nInvalid Map", 2);
 		exit(EXIT_FAILURE);
 	}
 	close(fd);
 	return (line);
 }
 
-int		readmap(t_map *map, char *map_file)
+int	readmap(t_map *map, char *map_file)
 {
 	int		fd;
 	int		line;
@@ -81,9 +79,10 @@ int		readmap(t_map *map, char *map_file)
 	close(fd);
 	return (line);
 }
+
 void	is_exist(char *file_path)
 {
-	int fd;
+	int	fd;
 
 	fd = open(file_path, O_RDONLY);
 	if (fd == -1)
@@ -92,15 +91,11 @@ void	is_exist(char *file_path)
 
 void	check_content(char *file_path)
 {
-	int fd;
-	char *str;
+	int		fd;
+	char	*str;
 
 	fd = open(file_path, O_RDONLY);
 	str = get_next_line(fd);
 	if (!str)
 		fail_err();
 }
-
-
-
-
