@@ -1,6 +1,5 @@
 # Prerequisites
 *.d
-*.png
 
 # Object files
 *.o
