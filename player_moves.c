@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 12:00:39 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/15 15:52:05 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/16 15:24:48 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	go_right(t_map *map, int w)
 	{
 		map->map[j][i + w] = 'P';
 		map->map[j][i] = '0';
-		vsync(map);
+		vsync_with_exit(map);
 	}
 }
 
@@ -54,7 +54,7 @@ void	go_left(t_map *map, int w)
 	{
 		map->map[j][i + w] = 'P';
 		map->map[j][i] = '0';
-		vsync(map);
+		vsync_with_exit(map);
 	}
 }
 
@@ -77,7 +77,7 @@ void	go_up(t_map *map, int w)
 	{
 		map->map[j + w][i] = 'P';
 		map->map[j][i] = '0';
-		vsync(map);
+		vsync_with_exit(map);
 	}
 }
 
@@ -100,7 +100,7 @@ void	go_down(t_map *map, int w)
 	{
 		map->map[j + w][i] = 'P';
 		map->map[j][i] = '0';
-		vsync(map);
+		vsync_with_exit(map);
 	}
 }
 

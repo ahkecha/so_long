@@ -6,12 +6,11 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 12:46:58 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/15 15:58:41 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/16 15:22:43 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 int		key_press(int keycode, t_map *map)
 {
@@ -34,6 +33,7 @@ int		key_press(int keycode, t_map *map)
 int	main(int ac, char **av)
 {
 	t_map map;
+
 	if (ac < 2)
 		arerr();
 	is_exist(av[1]);
@@ -41,13 +41,11 @@ int	main(int ac, char **av)
 		ext_error();
 	check_content(av[1]);
 	readmap(&map, av[1]);
-	// int res = ft_charcount(map.map, 'C');
-	// printf("%d", res);
+	check_components(&map);
 	map.mlx.mlx = mlx_init();
 	map.mlx.win = mlx_new_window(map.mlx.mlx, map.img.width * 70, map.img.height * 70, "test");
 	render_bg(&map);
 	parse_map(&map, "./textures/portal.xpm");
-
 	player_position(&map);
 	mlx_hook(map.mlx.win, 2, 1L<<0, key_press, &map);
 	mlx_hook(map.mlx.win, 17, 1L<<17, quit, &map);

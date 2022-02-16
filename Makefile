@@ -6,7 +6,7 @@
 #    By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/12 12:08:25 by ahkecha           #+#    #+#              #
-#    Updated: 2022/02/15 15:37:34 by ahkecha          ###   ########.fr        #
+#    Updated: 2022/02/16 15:22:53 by ahkecha          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ LIBFT = libft
 INCLUDE = so_long.h libft/libft.h
 LIB = libft/libft.a
 LIB_MLX = minilibx/libmlx.a
-SRC = error_exits.c gnl.c map_check.c player_moves.c render_texture.c so_long.c so_long_main.c so_longs_utils.c so_long_utils2.c
+SRC = error_exits.c gnl.c map_check.c player_moves.c render_texture.c so_long.c so_long_main.c so_longs_utils.c so_long_utils2.c check_content.c
 OBJS = ${SRC:.c=.o}
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
