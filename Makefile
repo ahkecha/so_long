@@ -6,7 +6,7 @@
 #    By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/12 12:08:25 by ahkecha           #+#    #+#              #
-#    Updated: 2022/02/17 14:53:04 by ahkecha          ###   ########.fr        #
+#    Updated: 2022/02/18 12:54:01 by ahkecha          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,8 @@ INCLUDE = so_long.h libft/libft.h
 LIB = libft/libft.a
 LIB_MLX = minilibx/libmlx.a
 
-SRC = error_exits.c gnl.c map_check.c player_moves.c render_texture.c so_long.c so_long_main.c so_longs_utils.c so_long_utils2.c check_content.c
-SRC_BONUS = $(addprefix bonus/, error_exits_bonus.c gnl_bonus.c map_check_bonus.c player_moves_bonus.c render_texture_bonus.c so_long_bonus.c so_long_main_bonus.c so_longs_utils_bonus.c so_long_utils2_bonus.c check_content_bonus.c)
+SRC = error_exits.c gnl.c map_check.c player_moves.c render_texture.c so_long_main.c so_longs_utils.c so_long_utils2.c check_content.c
+SRC_BONUS = $(addprefix bonus/, error_exits_bonus.c gnl_bonus.c map_check_bonus.c player_moves_bonus.c render_texture_bonus.c so_long_main_bonus.c so_longs_utils_bonus.c so_long_utils2_bonus.c check_content_bonus.c)
 
 OBJS = ${SRC:.c=.o}
 OBJS_BONUS = ${SRC_BONUS:.c=.o}
