@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 17:37:54 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/18 11:44:34 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/18 13:15:17 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "minilibx/mlx.h"
 # include <fcntl.h>
+# include <stdlib.h>
 # include <unistd.h>
 # include "libft/libft.h"
 
@@ -53,6 +54,7 @@ typedef struct s_map
 	void	*map_path;
 	char	**map;
 	int		steps;
+	char	*step_s;
 	int		coll;
 	int		p;
 	int		c;
