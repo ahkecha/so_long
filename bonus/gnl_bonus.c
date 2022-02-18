@@ -6,11 +6,11 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 12:59:57 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/16 15:46:14 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/18 13:19:22 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "../so_long.h"
 
 static int	get_line2(int fd, char **s, t_list *var)
 {

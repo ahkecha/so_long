@@ -6,11 +6,12 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 13:54:34 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/16 17:29:32 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/18 13:25:48 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "../so_long.h"
+#include <stdio.h>
 
 void	render_bg(t_map *map)
 {
@@ -38,12 +39,12 @@ void	render_img(t_map *map, int i, int j, char *path)
 
 	height = 70;
 	width = 70;
+	map->step_s = ft_itoa(map->steps);
 	map->img.ptr = mlx_xpm_file_to_image(map->mlx.mlx, path, &width, &height);
-	mlx_put_image_to_window(map->mlx.mlx, map->mlx.win, map->img.ptr, j * 70, i
+	mlx_put_image_to_window(map->mlx.mlx, map->mlx.win, map->img.ptr, j * 70, i \
 			* 70);
-	mlx_string_put(map->mlx.mlx, map->mlx.win, 30, 50, 0xFFFFFF,
-			ft_itoa(map->steps));
 	mlx_string_put(map->mlx.mlx, map->mlx.win, 30, 30, 0xFFFFFF, "STEPS");
+	mlx_string_put(map->mlx.mlx, map->mlx.win, 30, 50, 0xFFFFFF, map->step_s);
 	mlx_destroy_image(map->mlx.mlx, map->img.ptr);
 }
 

@@ -6,11 +6,11 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 12:45:56 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/17 12:23:41 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/18 13:19:17 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "../so_long.h"
 
 void	f_map_error(void)
 {
@@ -32,7 +32,7 @@ void	fail_err(void)
 
 void	arerr(void)
 {
-	ft_putendl_fd("Error\nNot enough arguments", 2);
+	ft_putendl_fd("Error:\nNot enough arguments", 2);
 	exit(EXIT_FAILURE);
 }
 

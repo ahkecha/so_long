@@ -6,11 +6,12 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 17:48:56 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/17 12:47:06 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/18 13:19:24 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "../so_long.h"
+#include <errno.h>
 
 int	check_extentions(char *file_path)
 {
@@ -19,7 +20,7 @@ int	check_extentions(char *file_path)
 	lenght = ft_strlen(file_path);
 	if (!lenght)
 		f_map_error();
-	if (file_path[lenght - 1] == 'r' && file_path[lenght - 2] == 'e' &&
+	if (file_path[lenght - 1] == 'r' && file_path[lenght - 2] == 'e' && \
 		file_path[lenght - 3] == 'b' && file_path[lenght - 4] == '.')
 		return (1);
 	else
@@ -60,7 +61,7 @@ int	readmap(t_map *map, char *map_file)
 
 	line = check2(map_file);
 	if (!line)
-		return (0);
+		errmap();
 	fd = open(map_file, O_RDONLY);
 	map->map = malloc(sizeof(char *) * line);
 	line = 0;
@@ -74,10 +75,11 @@ int	readmap(t_map *map, char *map_file)
 	}
 	map->img.height = line;
 	map->img.width = ft_strlen(map->map[0]) - 1;
-	map->steps = 0;
+	init_counters(map);
 	close(fd);
 	return (line);
 }
+
 void	is_exist(char *file_path)
 {
 	int	fd;

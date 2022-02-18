@@ -6,11 +6,11 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 12:00:39 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/16 15:46:30 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/18 13:19:26 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "../so_long.h"
 
 void	go_right(t_map *map, int w)
 {
@@ -31,6 +31,7 @@ void	go_right(t_map *map, int w)
 		map->map[j][i + w] = 'P';
 		map->map[j][i] = '0';
 		vsync_with_exit(map);
+
 	}
 }
 

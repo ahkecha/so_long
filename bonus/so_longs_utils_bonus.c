@@ -6,20 +6,11 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 18:34:57 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/16 17:29:19 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/18 13:20:02 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
-
-void	ft_swap(char *a, char *b)
-{
-	char	tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
+#include "../so_long.h"
 
 int	ft_charcount(t_map *map)
 {
@@ -45,9 +36,7 @@ int	ft_charcount(t_map *map)
 
 void	count_steps(t_map *map)
 {
-	map->steps += 1;
-	ft_putnbr_fd(map->steps, 1);
-	ft_putstr_fd("\n", 1);
+	map->steps++;
 }
 
 void	vsync(t_map *map)

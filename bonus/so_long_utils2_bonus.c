@@ -6,11 +6,11 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 13:41:55 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/16 15:46:53 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/18 13:19:38 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "../so_long.h"
 
 void	ft_free(char **str)
 {
@@ -29,4 +29,12 @@ void	winexit(void)
 {
 	ft_putendl_fd("👏👏👏Winner👏👏👏", 1);
 	exit(EXIT_SUCCESS);
+}
+
+void	init_counters(t_map *map)
+{
+	map->steps = 0;
+	map->e = 0;
+	map->p = 0;
+	map->c = 0;
 }
