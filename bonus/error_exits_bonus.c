@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 12:45:56 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/16 15:46:11 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/17 12:23:41 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,11 @@ void	fail_err(void)
 void	arerr(void)
 {
 	ft_putendl_fd("Error\nNot enough arguments", 2);
+	exit(EXIT_FAILURE);
+}
+
+void	errmap(void)
+{
+	ft_putendl_fd("Error:\nMap is invalid", 2);
 	exit(EXIT_FAILURE);
 }

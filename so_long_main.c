@@ -6,11 +6,12 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 12:46:58 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/16 15:51:39 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/18 11:45:37 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include <stdio.h>
 
 int	key_press(int keycode, t_map *map)
 {
@@ -41,7 +42,7 @@ int	main(int ac, char **av)
 		ext_error();
 	check_content(av[1]);
 	readmap(&map, av[1]);
-	check_components(&map);
+	init_check(&map);
 	map.mlx.mlx = mlx_init();
 	map.mlx.win = mlx_new_window(map.mlx.mlx, map.img.width * 70, map.img.height
 			* 70, "so_long");

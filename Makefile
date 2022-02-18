@@ -6,7 +6,7 @@
 #    By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/12 12:08:25 by ahkecha           #+#    #+#              #
-#    Updated: 2022/02/16 15:48:55 by ahkecha          ###   ########.fr        #
+#    Updated: 2022/02/17 14:53:04 by ahkecha          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,18 +42,18 @@ bonus: $(NAME_BONUS)
 
 
 $(NAME_BONUS):	$(OBJS_BONUS) $(LIB) $(INCLUDE)
-			$(CC) $(MINILIBX_FLAGS) $(LIB) $(OBJS_BONUS) -o $(NAME_BONUS)
+			$(CC) $(CFLAGS) $(MINILIBX_FLAGS) $(LIB) $(OBJS_BONUS) -o $(NAME_BONUS)
 
 
 $(NAME): $(OBJS) $(LIB) $(INCLUDE)
-		$(CC) $(MINILIBX_FLAGS) $(LIB) $(OBJS) -o $(NAME)
+		$(CC) $(CFLAGS) $(MINILIBX_FLAGS) $(LIB) $(OBJS) -o $(NAME)
 
 $(LIB):
-	$(MAKE) -C $(LIBFT)
-	$(MAKE) -C minilibx/
+	@make -C $(LIBFT)
+	@make -C minilibx/
 
 clean:
-	$(MAKE) clean -C $(LIBFT)
+	@make clean -C $(LIBFT)
 	$(RM) $(OBJS)
 	$(RM) $(OBJS_BONUS)
 
@@ -61,7 +61,7 @@ fclean: clean
 		$(RM) $(NAME)
 		$(RM) $(NAME_BONUS)
 		$(RM) $(LIB)
-		$(MAKE) clean -C minilibx/
+		@make clean -C minilibx/
 
 re: fclean all
 

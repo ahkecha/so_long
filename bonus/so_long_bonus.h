@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 17:37:54 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/16 15:47:56 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/17 12:30:10 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,8 @@
 
 typedef struct s_img
 {
-	void	*up;
-	void	*down;
-	void	*left;
-	void	*right;
-	void	*bg;
-	void	*addr;
 	void	*ptr;
 	int		lenght;
-	int		endian;
 	int		height;
 	int		width;
 }	t_img;
@@ -51,34 +44,16 @@ typedef struct s_mlx
 {
 	void	*mlx;
 	void	*win;
-	int		x_len;
-	int		y_len;
 }	t_mlx;
 
 typedef struct s_map
 {
 	int		playerx;
 	int		playery;
-	int		exitis;
 	void	*map_path;
 	char	**map;
-	int		empty;
-	void	*emerald;
 	int		steps;
-	int		start;
-	void	*exit;
-	int		*exit2;
-	void	*walls;
 	int		coll;
-	int		dif;
-	int		rows;
-	int		eoe_count;
-	int		*player;
-	int		*bg;
-	char	*tex_bg;
-	char	*tex_wall;
-	char	*tex_emerald;
-	char	*tex_exit;
 	t_mlx	mlx;
 	t_img	img;
 }	t_map;
@@ -90,12 +65,12 @@ typedef struct gnl
 	int			tab[2];
 }			t_list;
 
-//erros functions
 void	f_map_error(void);
 void	ext_error(void);
 void	fail_err(void);
 void	arerr(void);
 int		quit(int a);
+void	errmap(void);
 int		check_map(char *map_file, t_map *map);
 int		readmap(t_map *map, char *map_file);
 void	bg(t_map *map, int i, int j);

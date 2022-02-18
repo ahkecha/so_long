@@ -6,7 +6,7 @@
 /*   By: ahkecha <ahkecha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 17:48:56 by ahkecha           #+#    #+#             */
-/*   Updated: 2022/02/16 18:07:49 by ahkecha          ###   ########.fr       */
+/*   Updated: 2022/02/18 11:29:04 by ahkecha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	readmap(t_map *map, char *map_file)
 
 	line = check2(map_file);
 	if (!line)
-		return (0);
+		errmap();
 	fd = open(map_file, O_RDONLY);
 	map->map = malloc(sizeof(char *) * line);
 	line = 0;
@@ -75,7 +75,7 @@ int	readmap(t_map *map, char *map_file)
 	}
 	map->img.height = line;
 	map->img.width = ft_strlen(map->map[0]) - 1;
-	map->steps = 0;
+	init_counters(map);
 	close(fd);
 	return (line);
 }
