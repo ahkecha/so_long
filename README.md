@@ -16,7 +16,7 @@
 
 * in Linux, clone this repo and compile it from here: [42 minilibx](https://github.com/42Paris/minilibx-linux)
 * in MacOs you can the built-in Makefile in this project will compile and link libraries accordingly
-* * the minilibx that comes with the project is for mac os only and it does not use X11 or XQuartz but Cocoa API from macos AppKit, consequently the makefile uses ```-framework AppKit```
+* * the minilibx that comes with the project is for mac os only and it does not use X11 or XQuartz but Cocoa API from macos AppKit, consequently the compiler uses ```-framework AppKit```
 
 ### Makefile
 To Compile Bonus:
@@ -36,7 +36,6 @@ $> Usage: ./so_long [map_file]
 ![img](textures/s.png)
 ## Resources
 
-Inspiration, code snippets, etc.
 * [minilibx docs](https://harm-smits.github.io/42docs/libs/minilibx)
 * [minilibx](https://qst0.github.io/ft_libgfx/man_mlx.html)
 
