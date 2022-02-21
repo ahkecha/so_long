@@ -1,5 +1,5 @@
 # so_long
-1337 so_long project developing a 2D game that can parse any map using MiniLibX
+42 so_long project developing a 2D game that can parse any map using MiniLibX
 
 ## Description
 
